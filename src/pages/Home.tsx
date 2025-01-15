@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'; // Import Link from React Router
 import Hero from '../components/Hero';
 import PropertyTypes from '../components/PropertyTypes';
 import ProjectStats from '../components/ProjectStats';
@@ -29,9 +30,10 @@ const Home = () => {
             <p className="text-xl mb-8">
               Let our experts guide you through the best properties in Noida.
             </p>
-            <button className="px-8 py-4 bg-white text-blue-600 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors">
+            {/* Updated Button */}
+            <Link to="/contact" className="px-8 py-4 bg-white text-blue-600 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors">
               Get Started Today
-            </button>
+            </Link>
           </motion.div>
         </div>
       </section>

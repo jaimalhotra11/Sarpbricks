@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
+import logo from '../assets/images/logo.jpg'; // Import the logo image
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,11 +20,15 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full bg-white shadow-lg z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo Section */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <Home className="h-8 w-8 text-blue-600" />
-              <span className="ml-2 text-xl font-bold text-gray-900">SarpBricks</span>
+              <img
+                src= '../assets/images/logo.jpg'
+                alt="SarpBricks Logo"
+                className="h-12 w-auto object-contain" // Adjusted height for better appearance
+              />
             </Link>
           </div>
 
@@ -44,7 +49,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile Navigation */}
+          {/* Mobile Navigation Toggle Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}

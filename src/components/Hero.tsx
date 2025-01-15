@@ -15,7 +15,7 @@ const Hero = () => {
     },
     {
       image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c',
-      subtitle: 'Strategic Investments',
+      subtitle: 'We Make Your Assets',
     },
   ];
 

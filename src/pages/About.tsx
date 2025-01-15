@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Award, Users, ThumbsUp, Target } from 'lucide-react';
+import { useLocation } from 'react-router-dom'; // Import useLocation hook to track route changes
+import ownerPhoto from '../assets/images/owner.jpg';
 
 const About = () => {
+  const location = useLocation(); // Get the current route
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top when the route changes
+  }, [location]); // Trigger scrollTo when the location (route) changes
+
   const values = [
     {
       icon: Award,
@@ -27,7 +35,7 @@ const About = () => {
   ];
 
   return (
-    <div className="pt-16 bg-gray-100 min-h-screen">
+    <div className="pt-16 bg-gradient-to-r from-blue-50 to-gray-100 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <motion.div
@@ -37,8 +45,8 @@ const About = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl font-bold text-gray-900 mb-4">About SarpBricks</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            With over two decades of experience in real estate, SarpBricks has been
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            With over 15+ years of experience in real estate, SarpBricks has been
             helping people find their dream properties and make smart investment
             decisions.
           </p>
@@ -50,10 +58,10 @@ const About = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-lg shadow-md p-8"
+            className="bg-white rounded-lg shadow-lg p-8"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h2>
-            <p className="text-gray-600">
+            <p className="text-gray-700">
               To be the most trusted name in real estate, known for innovation,
               excellence, and customer satisfaction.
             </p>
@@ -63,10 +71,10 @@ const About = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-lg shadow-md p-8"
+            className="bg-white rounded-lg shadow-lg p-8"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
-            <p className="text-gray-600">
+            <p className="text-gray-700">
               To provide exceptional real estate services while maintaining the highest
               standards of professionalism, integrity, and innovation.
             </p>
@@ -90,19 +98,19 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-lg shadow-md p-6 text-center"
+                className="bg-white rounded-lg shadow-lg p-6 text-center"
               >
                 <value.icon className="h-12 w-12 text-blue-600 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {value.title}
                 </h3>
-                <p className="text-gray-600">{value.description}</p>
+                <p className="text-gray-700">{value.description}</p>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Team Section */}
+        {/* Leadership Team */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -112,8 +120,30 @@ const About = () => {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Our Leadership Team
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Add team members here */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+            <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center">
+              <img
+                src='../assets/images/owner.jpg'
+                alt="Sajid Khan"
+                className="h-40 w-40 rounded-full mb-4 border-4 border-blue-600"
+              />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Sajid Khan</h3>
+              <p className="text-gray-700 mb-2">
+                Sajid Khan, a seasoned entrepreneur with over 16 years of experience
+                in the real estate industry, has been instrumental in shaping
+                SarpBricks into a trusted name in the market. Based in Noida, Sajid
+                Khan has a deep understanding of the real estate landscape and a
+                passion for delivering value to clients. Under his leadership, the
+                company has grown exponentially, establishing a strong reputation
+                for integrity, professionalism, and innovation.
+              </p>
+              <p className="text-gray-700">
+                His vision and strategic insights have led to numerous successful
+                projects, earning the trust of countless satisfied clients. Sajid
+                believes in a customer-first approach and consistently works towards
+                exceeding expectations.
+              </p>
+            </div>
           </div>
         </motion.div>
 
@@ -122,12 +152,17 @@ const About = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-white rounded-lg shadow-md p-8"
+          className="bg-white rounded-lg shadow-lg p-8"
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Our Journey
           </h2>
-          {/* Add timeline component here */}
+          <p className="text-gray-700 text-center">
+            From our humble beginnings in Noida to becoming a recognized leader in the
+            real estate industry, SarpBricks has always prioritized innovation,
+            customer satisfaction, and excellence. Join us as we continue to pave the
+            way for the future of real estate.
+          </p>
         </motion.div>
       </div>
     </div>
